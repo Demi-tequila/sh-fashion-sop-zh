@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html data-page-node-id="SN6uMzymsaEcpwz7EsuLQD" lang="zh-CN">
+<head data-page-node-id="5KblJv4bUhPScnB3PPRuO1">
+<script data-page-node-id="1cpHaZOyIwgdYRdDCC7kbv" src="/page/page_comm/inject.js"></script>
+<meta data-page-node-id="JFIf8o6M7skwmLpm57hGcg" charset="UTF-8">
+<meta data-page-node-id="PEITK7wwcUVZwZWb6KxXP2" content="width=device-width, initial-scale=1.0" name="viewport">
+<title data-page-node-id="9MTNO2DCIBZwuKpmrTKW9r" data-pnid-children="C9F9cGWdyrVLRrrek44Lzc">上海时尚行业员工 SOP 知识库 · Vibe Coding Edition</title>
+<style data-page-node-id="lw6GAV9DC2LWldRxDbjmHD" data-pnid-children="tYzwXeR1ZRfuPq3jPhnCEV">
+  :root{
+    --bg:#0e0e10;
+    --panel:#16161a;
+    --panel-2:#1d1d22;
+    --line:#2a2a31;
+    --ink:#ece9e3;
+    --muted:#9a958c;
+    --accent:#c9a25e;       /* 香槟金 */
+    --accent-2:#e7d9bf;
+    --rose:#d98a86;
+    --green:#7fae8e;
+    --red:#d76a6a;
+    --serif:"Songti SC","Noto Serif SC",Georgia,"Times New Roman",serif;
+    --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--sans);font-size:15px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{color:var(--accent-2);}
+
+  /* ---------- Layout ---------- */
+  .layout{display:grid;grid-template-columns:264px 1fr;min-height:100vh;}
+  .sidebar{
+    position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;
+    background:var(--panel);border-right:1px solid var(--line);padding:26px 18px;
+  }
+  .brand{font-family:var(--serif);font-size:19px;letter-spacing:.5px;line-height:1.3;}
+  .brand b{color:var(--accent);}
+  .brand small{display:block;font-family:var(--sans);font-size:11px;color:var(--muted);letter-spacing:2px;margin-top:6px;text-transform:uppercase;}
+  .nav{margin-top:26px;display:flex;flex-direction:column;gap:2px;}
+  .nav a{
+    display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;
+    color:var(--muted);font-size:13.5px;transition:.15s;
+  }
+  .nav a:hover,.nav a.active{background:var(--panel-2);color:var(--ink);}
+  .nav a .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.4;flex:none;}
+  .nav a:hover .dot,.nav a.active .dot{opacity:1;}
+  .nav .grp{font-size:10.5px;letter-spacing:2px;color:#5d5850;margin:18px 12px 6px;text-transform:uppercase;}
+
+  main{padding:0;max-width:1080px;}
+  .hero{
+    padding:64px 56px 48px;border-bottom:1px solid var(--line);
+    background:radial-gradient(900px 360px at 80% -10%,rgba(201,162,94,.16),transparent 60%);
+  }
+  .hero .kicker{font-size:12px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;}
+  .hero h1{font-family:var(--serif);font-size:40px;line-height:1.15;margin:14px 0 16px;font-weight:600;}
+  .hero p{color:var(--muted);max-width:680px;font-size:15.5px;}
+  .hero .meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:24px;font-size:12.5px;color:var(--muted);}
+  .hero .meta b{color:var(--ink);font-weight:600;}
+
+  section{padding:46px 56px;border-bottom:1px solid var(--line);}
+  section>h2{font-family:var(--serif);font-size:27px;margin:0 0 6px;font-weight:600;}
+  section>h2 .num{color:var(--accent);font-size:16px;font-family:var(--mono);margin-right:12px;}
+  .lead{color:var(--muted);margin:0 0 26px;max-width:760px;}
+
+  /* ---------- Cards ---------- */
+  .grid{display:grid;gap:16px;}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  @media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr;}.layout{grid-template-columns:1fr;}.sidebar{display:none;}section,.hero{padding-left:22px;padding-right:22px;}}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 20px;transition:.15s;}
+  .card:hover{border-color:var(--accent);transform:translateY(-2px);}
+  .card h3{margin:0 0 4px;font-size:16.5px;font-family:var(--serif);}
+  .card .tag{display:inline-block;font-size:11px;letter-spacing:1px;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:2px 9px;margin-bottom:10px;}
+  .card p{margin:8px 0 0;color:var(--muted);font-size:13.5px;}
+  .card ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:13px;}
+  .card ul li{margin:3px 0;}
+
+  /* ---------- SOP / Steps ---------- */
+  .role-block{margin:30px 0;}
+  .role-block>.rhead{display:flex;align-items:baseline;gap:12px;border-left:3px solid var(--accent);padding-left:14px;margin-bottom:14px;}
+  .role-block>.rhead h3{font-family:var(--serif);font-size:21px;margin:0;}
+  .role-block>.rhead span{color:var(--muted);font-size:13px;}
+  .sop{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin:10px 0;overflow:hidden;}
+  .sop summary{cursor:pointer;padding:14px 18px;font-weight:600;font-size:14.5px;list-style:none;display:flex;align-items:center;gap:10px;}
+  .sop summary::-webkit-details-marker{display:none;}
+  .sop summary .ic{color:var(--accent);font-family:var(--mono);font-size:12px;}
+  .sop summary:hover{background:var(--panel-2);}
+  .sop .body{padding:4px 18px 18px;border-top:1px solid var(--line);}
+  .sop ol{margin:12px 0;padding-left:4px;list-style:none;counter-reset:s;}
+  .sop ol li{counter-increment:s;position:relative;padding:8px 0 8px 40px;border-bottom:1px dashed var(--line);}
+  .sop ol li:last-child{border-bottom:none;}
+  .sop ol li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:8px;width:28px;height:22px;background:var(--panel-2);border:1px solid var(--line);border-radius:6px;color:var(--accent);font-family:var(--mono);font-size:12px;display:flex;align-items:center;justify-content:center;}
+  .sop ol li b{color:var(--accent-2);}
+  .pill{display:inline-block;font-size:11px;padding:1px 8px;border-radius:6px;background:var(--panel-2);border:1px solid var(--line);color:var(--muted);margin-right:4px;}
+  .warn{border-left:3px solid var(--red);background:rgba(215,106,106,.08);padding:10px 14px;border-radius:8px;margin:10px 0;font-size:13px;color:#e7b8b8;}
+
+  /* ---------- Skill map ---------- */
+  .skillgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:14px;}
+  @media(max-width:860px){.skillgrid{grid-template-columns:1fr;}}
+  .skillbox{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;}
+  .skillbox h4{margin:0 0 10px;font-size:14px;color:var(--accent);letter-spacing:1px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:6px;}
+  .chip{font-size:12px;background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:4px 11px;color:var(--ink);}
+  .kv{display:flex;gap:8px;font-size:13px;margin:7px 0;color:var(--muted);}
+  .kv b{color:var(--ink);font-weight:600;min-width:64px;display:inline-block;}
+
+  /* ---------- Generator ---------- */
+  .gen{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;}
+  .gen .row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px;}
+  .gen label{font-size:12.5px;color:var(--muted);display:block;margin-bottom:6px;letter-spacing:1px;}
+  select{background:var(--panel-2);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-size:14px;min-width:220px;font-family:var(--sans);}
+  select:focus{outline:none;border-color:var(--accent);}
+  .btn{background:var(--accent);color:#1a1408;border:none;border-radius:9px;padding:11px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--sans);}
+  .btn:hover{background:var(--accent-2);}
+  #genOut{margin-top:18px;display:none;}
+  #genOut.show{display:block;}
+  .gencard{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-top:12px;}
+  .gencard h4{margin:0 0 4px;font-family:var(--serif);font-size:18px;}
+  .gencard .sub{color:var(--muted);font-size:12.5px;margin-bottom:12px;}
+  .gencard ul{margin:8px 0 0;padding-left:18px;font-size:13.5px;}
+  .gencard ul li{margin:5px 0;}
+
+  /* ---------- Code notes ---------- */
+  .code{background:#0a0a0c;border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-family:var(--mono);font-size:12.5px;color:#bdb8ad;overflow-x:auto;white-space:pre;margin:12px 0;}
+  .code .c{color:#6a655c;}
+  .code .k{color:var(--accent);}
+  .code .s{color:var(--green);}
+
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:14px 18px;margin:14px 0;color:var(--muted);font-size:13.5px;}
+  .note b{color:var(--ink);}
+
+  footer{padding:30px 56px;color:var(--muted);font-size:12.5px;}
+  .disclaimer{border-top:1px solid var(--line);margin-top:26px;padding-top:20px;text-align:left;}
+  .disclaimer-title{font-family:var(--serif);font-size:14px;letter-spacing:.5px;color:var(--accent);margin-bottom:10px;}
+  .disclaimer ol{margin:0;padding-left:20px;}
+  .disclaimer li{margin:6px 0;line-height:1.75;}
+  .disclaimer b{color:#e7b8b8;font-weight:600;}
+  .disclaimer-meta{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:12px;color:var(--muted);}
+  .totop{position:fixed;right:22px;bottom:22px;background:var(--accent);color:#1a1408;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transition:.2s;box-shadow:0 6px 20px rgba(0,0,0,.4);}
+  .totop.show{opacity:1;pointer-events:auto;}
+  .totop:hover{background:var(--accent-2);}
+  .hl{color:var(--accent);font-weight:600;}
+</style>
+</head>
+<body data-page-node-id="EeteHaL6IamfTQkKJd051Y">
+<div data-page-node-id="JSSzDTbiufLVZZq7dIrc5b" class="layout">
+  <!--pnid:k5GrVvPhgJu5hLqLhjopjp--><!-- ============ SIDEBAR ============ -->
+  <aside data-page-node-id="QjC27bjqBU8JyqikOXOThO" class="sidebar">
+    <div data-page-node-id="y9OO8yAu1ikre9vWnSn1fH" class="brand"><b data-page-node-id="4ZXM3fbMmNFlkZrkKkH6Lf"><!--pnid:xWyemjZvUHAnX0p45E8Bt4-->SH FASHION</b><!--pnid:gObEopUi2zdUcesRa2lJlS--> SOP 库<small data-page-node-id="Y4ReUS2SdkFf9VWaQNo6Hi"><!--pnid:JEtm7Wl4Wlc5ry6AVopicV-->Vibe Coding Edition</small></div>
+    <nav data-page-node-id="lhNO1AHL40MU4yGsxY6glS" class="nav" id="nav">
+      <a data-page-node-id="sYaK0OGZFvOmmxmcNiOPI4" class="active" href="#top"><span data-page-node-id="XAjb5HetgZGDOJHKjRNq1J" class="dot"></span><!--pnid:EhgXuW2gb0Qme7ZGBLDLXb-->首页 / 概览</a>
+      <div data-page-node-id="6nvmmlqIoURObQOWhAv2Sp" class="grp"><!--pnid:3j9nseLyjEhWyvFOIO7l1U-->认知层</div>
+      <a data-page-node-id="HEZaNJWFDJ5cZgpZz6dmcg" href="#map"><span data-page-node-id="l27rpHG5uyctmlOKKewFb2" class="dot"></span><!--pnid:6J0J2FUrDFC53M5lrxA90i-->① 行业图谱</a>
+      <a data-page-node-id="u261X9bhoAPHSYHtXdamWA" href="#types"><span data-page-node-id="NJp1gdk3WSmuUk1TzpcFeI" class="dot"></span><!--pnid:rT1p7JFKVr7XGowhxrpPBf-->② 公司类型详解</a>
+      <div data-page-node-id="ThYnLCnAamn2fsIQX107V0" class="grp"><!--pnid:xkbRBukQNRmI1ycyYNejf5-->执行层</div>
+      <a data-page-node-id="DkFF7BbjbHw9r5TjtNLOZ4" href="#sop"><span data-page-node-id="cqr3mYpwKLi5hNFOOsQWK4" class="dot"></span><!--pnid:GmqnMGZLmFrHTQcPzYEWZJ-->③ 岗位 SOP 手册</a>
+      <a data-page-node-id="xFVkarkbGFREpmZnLBiUp6" href="#skill"><span data-page-node-id="4UBjbc1rHbRb7h8fgmbatu" class="dot"></span><!--pnid:hPrbMgjPXjqMINpRv3lnfS-->④ 技能图谱 Skill</a>
+      <a data-page-node-id="OfydNWiVu9cNDLRPmJBLGm" href="#gen"><span data-page-node-id="opvw0JBsjYnhOGUTQyoMIa" class="dot"></span><!--pnid:Yddr95YAqmIzZsTtitM5ML-->⑤ SOP 生成器</a>
+      <div data-page-node-id="8UN8PXQRRbGZLOeChKQc06" class="grp"><!--pnid:pm9hLAcgLgwmTQSFBLK3Dh-->方法论</div>
+      <a data-page-node-id="OxRSpXxTAwZuuBUhmpzWxj" href="#vibe"><span data-page-node-id="7tYptZs8A3YqFOJ4z2L8ud" class="dot"></span><!--pnid:PzjmaYha7NKZuyqomId1cd-->⑥ Vibe Coding 手记</a>
+    </nav>
+  </aside>
+
+  <!--pnid:VB8C8Ydlbn3v3IQtr63d5B--><!-- ============ MAIN ============ -->
+  <main data-page-node-id="GT7qgtwL4uqiYaJZVVCex4">
+    <header data-page-node-id="iQblj1svWEx0hp1HhfiI1p" class="hero" id="top">
+      <div data-page-node-id="2hYoWxY5I40v1u6z8ZAgE2" class="kicker"><!--pnid:JaFJRYloERoWLu86F8pUOJ-->Standard Operating Procedures · Shanghai</div>
+      <h1 data-page-node-id="WCgrOqvogb4HJJ9rSBCRXB"><!--pnid:DLZNcbmeM6cpZr7zjsYEP2-->上海时尚行业<br data-page-node-id="IhWXQ1dj4AxQZokkKh5Pyx"><!--pnid:jW6XaBYrY6hgEtyk7YXW9Z-->员工 SOP 知识库</h1>
+      <p data-page-node-id="yG1FGZEXOGayDSKFvrY4E9"><!--pnid:LRskt3PPXr8SrQ0brs0ziT-->覆盖上海 9 类常见时尚公司与 8 类核心岗位的<strong data-page-node-id="pO6QiDqu4OWdyt6AZ1dV5e"><!--pnid:Ew5wgQn6pGfA6yFgaAN3zE-->标准化作业流程</strong><!--pnid:dbIHypCIbLju31wIv2HJPK-->。从入职第一天的清单，到周常节奏、跨部门协作、上新/大秀/危机关键场景，再到数据复盘与红线避坑——一套拿来即用、可按公司类型定制的操作手册。</p>
+      <div data-page-node-id="SKzGnuXkYu0ioI3QFVs7aV" class="meta">
+        <div data-page-node-id="qiMGASv4nc58LDRywzBhH6"><b data-page-node-id="8NW2EkZpDCHWyERHRXhpTA"><!--pnid:6lpqpUxg07yHNuxNmB0EQI-->9</b><!--pnid:EnKzecuqou0HnFmo3YbeN5--> 类公司形态</div>
+        <div data-page-node-id="dYtFg0w21VovlGoqmFUPfL"><b data-page-node-id="osH9vse0p0TcJ7wNsXW6An"><!--pnid:ZEtbQNc8VFfXXKUq46cx8e-->8</b><!--pnid:csvgofx08JoX2TntkGmnLJ--> 类核心岗位</div>
+        <div data-page-node-id="VoSGkgw48VW0BPrn21bJuh"><b data-page-node-id="qUYojBfjmit6nMEsDHfJ6l"><!--pnid:LvYtKTubthalwcxu3AL0BC-->6</b><!--pnid:Aa657TJ7Q53jnxgMTF4QBo--> 大 SOP 场景</div>
+        <div data-page-node-id="sW6JAv0zm6a6IUWI65uveQ"><b data-page-node-id="zhhU9XnYFmT1Z28vqp9hld"><!--pnid:VIOswtJMlrug0cmgjtGHoS-->1</b><!--pnid:EpEPDLVy7bGqpwRcpw0Zpo--> 个 SOP 生成器</div>
+        <div data-page-node-id="wMdvDwgnnZv5eOYApalygq"><b data-page-node-id="CBNUP3tpkecRcRvoMMwRvH"><!--pnid:EBiQh93513ah4cOFKH3RHE-->Vibe Coding</b><!--pnid:o1qEfG5LwJ9JGdXpjYwUfe--> 构建</div>
+      </div>
+    </header>
+
+    <!--pnid:jnRjzkpkJUCs8ZhxUHZJGr--><!-- ============ ① 行业图谱 ============ -->
+    <section data-page-node-id="6c70H04LjBfOqRz1u6Whq1" id="map">
+      <h2 data-page-node-id="wlZKhixzOxXmcLrIFq4yYd"><span data-page-node-id="ZM0Z9IS1cLMgoRhvn46XIE" class="num"><!--pnid:hr1Dkw3C4X44vGyNYAypDW-->01</span><!--pnid:8qBhlpEVJVUYW4YYzlfBbW-->行业图谱：上海时尚公司 9 大类</h2>
+      <p data-page-node-id="tE7Hu1zdHPH4F5LcxSybmL" class="lead"><!--pnid:nuqGNOAtwzGDrQtqLMv4VM-->先建立全局俯瞰。上海时尚产业呈「国际品牌 + 本土设计师 + 平台电商 + 媒体内容 + 服务中介」五环结构。每类公司的组织形态、核心岗位、节奏与红线差异巨大，SOP 不能一刀切。</p>
+      <div data-page-node-id="LPp6uNubKwd8X6SsHk3x7g" class="grid g3" id="mapGrid"></div>
+      <div data-page-node-id="dtXEGjGwvdPdBR5SMCalcW" class="note"><!--pnid:3PkduL9Iywdzfk0U53wMSJ-->📌 <b data-page-node-id="lKabFWMW3dCtFKcPlNywgn"><!--pnid:6iqMhjaWQKIazTqLh2Z4QG-->使用建议</b><!--pnid:S7CInjDZtxwTF3ulZJIfBq-->：先定位你所在公司属于哪一类（可跨类，例如「设计师品牌 + 自建电商」），再在 <a data-page-node-id="loqHvksRZDwWUBIBo2LvRE" href="#types"><!--pnid:Hy1RsQQaVMT6nlqQ29rsFh-->②</a><!--pnid:qbLx2U987iuWEWLC1lF3cR--> 看该类详解、在 <a data-page-node-id="JjDHPrKgybL26O7KFaTfjf" href="#sop"><!--pnid:TstRxfcp6JVlrpTK3WeSAe-->③</a><!--pnid:1sqx51K137cCpjNor5JrRN--> 取对应岗位的 SOP。</div>
+    </section>
+
+    <!--pnid:ApJaol8BKVkWzxE9mWZ5A4--><!-- ============ ② 公司类型详解 ============ -->
+    <section data-page-node-id="SBzjA6qdcSwpZbsUMN5Otx" id="types">
+      <h2 data-page-node-id="RpODnCahCOvrzjrTrsl7Lg"><span data-page-node-id="YfT5nuydKpNnaQZULab7rJ" class="num"><!--pnid:3xcwSGB7TmY3LWdmxEKXTC-->02</span><!--pnid:TpPwQfvx4pyEIlQG79Hc3b-->公司类型详解</h2>
+      <p data-page-node-id="Slz1ye3wG26Nfgbgt18kY7" class="lead"><!--pnid:es1IaU0LQZrbYUo3wqT3pO-->每一类给出：定位、代表玩家（示例）、组织形态、核心岗位、节奏与红线。点击展开。</p>
+      <div data-page-node-id="rCa3FIkEH1mhD0okAfblXV" id="typesWrap"></div>
+    </section>
+
+    <!--pnid:0jWg0RrDetYC7M7xFvj35q--><!-- ============ ③ 岗位 SOP ============ -->
+    <section data-page-node-id="bM6G2iNGO6dDthn0aRMS5T" id="sop">
+      <h2 data-page-node-id="4kWcCzaBBAd7dszsxTvzfN"><span data-page-node-id="VTQfSqJMIN14jrzrJRnNHo" class="num"><!--pnid:hzgc5YK8ZT9AQrcPe4Uc9J-->03</span><!--pnid:LiZ7T3NvKJiVONfzTr0ovm-->岗位 SOP 手册（8 类核心岗位）</h2>
+      <p data-page-node-id="D0OlmRsaOu76uy9PlT1j54" class="lead"><!--pnid:EhfTPj9SRB49zgeqC2z7Sc-->每个岗位包含 6 大 SOP 场景：<b data-page-node-id="mcIcTdLs8ogDuakpmWmKqC"><!--pnid:PmwapUaoVkxm5hbJM6I8OR-->入职落地</b><!--pnid:z73sJ45HFfeTcBbLQ5u2Sn--> · <b data-page-node-id="TeZU5T4DLeIGCmv4GgGQXp"><!--pnid:BfHCX0iIL8BhyxVitJTuO6-->周常节奏</b><!--pnid:pdvuM8XuBV5U61Z3QGirD1--> · <b data-page-node-id="3cQX3L3ZunIUpj6FGvMDDI"><!--pnid:rrFsgh2Ta5yo9Q0KUVMps9-->跨部门协作</b><!--pnid:aLXAarCGFTmdt0aWEjAN4K--> · <b data-page-node-id="4TTj7ycf8xi2uZeElE5H82"><!--pnid:prcesx1QynC0ffQN7ygK0a-->关键场景</b><!--pnid:AeASOm1iBf7zfQzL73Ym88--> · <b data-page-node-id="ohZTwOhLFNAITcrrcUqxoS"><!--pnid:k2HgFdlDGzOMUv6eCH5OOH-->数据复盘</b><!--pnid:Sg8PC0Ikpey4OCWbIa6Eqd--> · <b data-page-node-id="kouvOiRU6JIxtTjGboYoht"><!--pnid:RQP0sJ2Am2IlzcAJERWz7F-->红线与避坑</b><!--pnid:qLsgVx8ay7EMddX6JgLkCB-->。内容按「上海时尚行业」实际工作流撰写，可直接打印成新人手册。</p>
+      <div data-page-node-id="ye4Hp0Hfjojqq0pAkpzVab" id="sopWrap"></div>
+    </section>
+
+    <!--pnid:7wXLsWraQi7uZNVTOTvhpx--><!-- ============ ④ 技能图谱 ============ -->
+    <section data-page-node-id="PwxhxxEyO7DVXDok64unWO" id="skill">
+      <h2 data-page-node-id="zg6Dg0WJwOiGZm80QTWz6k"><span data-page-node-id="Ar87IIs9UaPILYB8wKEzml" class="num"><!--pnid:5FjD0Zl8km3PG44vibczjT-->04</span><!--pnid:oXpn7C1lwo1I6wMRidw7U9-->技能图谱 Skill Map</h2>
+      <p data-page-node-id="8zBE8HWm7Qkto6tCxDIrzV" class="lead"><!--pnid:Xzcee9UNIwXdK2vscMYY5j-->对每个核心岗位，给出可量化的能力模型：硬技能、软技能、工具栈、晋升路径、关键 KPI、学习资源。把「感觉」变成「清单」。</p>
+      <div data-page-node-id="cATlJj2hTUsxU0kThkJaAq" id="skillWrap"></div>
+    </section>
+
+    <!--pnid:U4AC3HIcpkdVx1cGkGsVAe--><!-- ============ ⑤ 生成器 ============ -->
+    <section data-page-node-id="3spl8MlezkRsHVa0liAWjk" id="gen">
+      <h2 data-page-node-id="HTmy6AKGGdeyiLf5M21sqz"><span data-page-node-id="a06uMthCyZlgjm7ePVG3gJ" class="num"><!--pnid:UlL9hmLNZ4pGoEIrF1sFiO-->05</span><!--pnid:X7j0e4goboiKjmOrIiMZf8-->SOP 生成器（交互）</h2>
+      <p data-page-node-id="JAelLifutkW390cRwMhyoE" class="lead"><!--pnid:I1W82WYhLAUoQzj0DDJgAK-->选择「公司类型」+「岗位」，一键生成<strong data-page-node-id="82ddQgWZMtopJ66Cm2tahm"><!--pnid:9obWe6PtWsErbfA8iesaKh-->定制版 SOP 清单</strong><!--pnid:BxiLBP4rWGcH9JbWGzkZAC-->。底层逻辑：岗位标准 SOP × 公司类型修正项，再叠加上海本地化动作（工商/场地/平台规则）。</p>
+      <div data-page-node-id="wLpOUqMyWzWQ11JYQzqMF8" class="gen">
+        <div data-page-node-id="U0j2UJGx8XqdH3WPLyUB9w" class="row">
+          <div data-page-node-id="01idDVyFLaOTPPoYJNbuqG">
+            <label data-page-node-id="YwVhCTsajgfw22Z18SvEhY"><!--pnid:jxvz993nuPAtiHT815bWeK-->① 公司类型</label>
+            <select data-page-node-id="r77ht5DqiMyDWQYnujsKju" id="selType"></select>
+          </div>
+          <div data-page-node-id="eziVFmeRandvAaUhp6nNyH">
+            <label data-page-node-id="8nB55MR7kpgHX0PFTq6vsa"><!--pnid:mZluXPn1NYnveAnsmyeoUP-->② 岗位</label>
+            <select data-page-node-id="xTYzO5KSr2tkzacFTA7rBL" id="selRole"></select>
+          </div>
+          <div data-page-node-id="eRRmxBBreTJFUW2uBGepKw" style="align-self:flex-end">
+            <button data-page-node-id="3cc0VKACFeJailVWEsfaRt" class="btn" id="genBtn"><!--pnid:tFY5aUPRY689i9gIkEuL3i-->生成定制 SOP →</button>
+          </div>
+        </div>
+        <div data-page-node-id="4RWKfGR8NkzL6iiWktsvP3" id="genOut"></div>
+      </div>
+    </section>
+
+    <!--pnid:02R3YfaxpIq2nw36x8HTga--><!-- ============ ⑥ Vibe Coding ============ -->
+    <section data-page-node-id="XW8FvbIJ05iHNog5IelHtg" id="vibe">
+      <h2 data-page-node-id="AyeBQvBDyyj1XO9HWc8IVK"><span data-page-node-id="KC9UTOdEKxPpksSmz6slec" class="num"><!--pnid:Kjj1CUqCFl4VkbZ2GGhT1t-->06</span><!--pnid:c13ngrkSwfA0ZDxasrkr5Z-->Vibe Coding 手记</h2>
+      <p data-page-node-id="CCGp9BMg3vrLAHDKhjMRQj" class="lead"><!--pnid:LCOodBX1hL9BKUWktcRrsU-->这份知识库本身是用「vibe coding」方式产出的：用自然语言描述需求，AI 直接生成结构 + 内容 + 交互，人只做「审美与校验」。下面是复现它的提示词骨架与迭代记录。</p>
+
+      <div data-page-node-id="4LZFyWpR7YjHjUpLqAqdQ9" class="skillbox" style="margin-bottom:14px">
+        <h4 data-page-node-id="V6chT9GOs8iPxBJTGff4KN"><!--pnid:tdZCzhQwgnJLrpbP3x3tJZ-->① 提示词骨架（Prompt Skeleton）</h4>
+        <div data-page-node-id="uqvMUHL41tz8uY9e0gvvC4" class="code"><span data-page-node-id="icTkok1wuZIBM4ooNLNasY" class="c"><!--pnid:Eyc9aJPMVFhRSarIV8jzls--># 角色</span><!--pnid:zF3JO8jKeXrcArPtlZzPxa-->
+你是一名有 10 年上海时尚行业经验的 <span data-page-node-id="s03f9umudDRqBI4JmdC7Wd" class="k"><!--pnid:VQRsH5eY70r9FUg59pcFnn-->操盘人</span><!--pnid:7iyCYRjGIEDZF1Urrhm6iE-->，熟悉奢侈品/设计师品牌/买手店/
+电商/媒体/PR/经纪/供应链/时尚科技。<span data-page-node-id="IzeNTK21oUy2Ike6ZY3DZT" class="c"><!--pnid:2bCjR5byGM2W4hz6SAMqPO--># 任务</span><!--pnid:FZkj8Hh8uesw2AaeNNyIdP-->
+为 [公司类型] 的 [岗位] 撰写员工 SOP，覆盖：入职落地、周常节奏、跨部门协作、
+关键场景(上新/大秀/危机)、数据复盘、红线避坑。<span data-page-node-id="mlVz6KVBzK453MIw2svYYS" class="c"><!--pnid:ytSrjChpJ9vLzwaZBu7JtB--># 约束</span><!--pnid:gdjFRlzZRuS5yQwvRX3OI1-->
+- 用可勾选的步骤(编号清单)，每条含动作+产出物
+- 融上海本地化动作(场地报批/工商/平台规则)
+- 越详细越好，避免空话<span data-page-node-id="JKmiSmRWh8YGkiXyQVtlyi" class="c"><!--pnid:DXHnFd5yr5pm2sLPTFhC32--># 输出</span><!--pnid:qeWXTcXYrA3COeE35cN6te-->
+Markdown 结构 + 可被 JS 读取的 JSON(用于生成器)</div>
+      </div>
+
+      <div data-page-node-id="nxbA88TVoy8opBMBdiw7eV" class="skillbox" style="margin-bottom:14px">
+        <h4 data-page-node-id="5vG2hoBqUjXd8rUuJV3jTC"><!--pnid:ZdyW8rMPbOuvVBtRh9nwYX-->② 迭代记录（发生了什么）</h4>
+        <ul data-page-node-id="CVbtf1lT0CgX3GUf7FVMOY" style="color:var(--muted); font-size:13.5px; padding-left:18px">
+          <li data-page-node-id="qd3C6E0irGYIIsZvr5urvC"><b data-page-node-id="dk25M4c6fMDplywf7bfrMA"><!--pnid:sBHptbyKiOtUzuFUO9Aj9H-->v0</b><!--pnid:qBh5P5dpjAlkSAv1DIT16M-->：先要「行业图谱 + 公司分类」，确认 9 类结构，避免范围漂移。</li>
+          <li data-page-node-id="Vu2xEwA3Y5XHfLA7xnUAAH"><b data-page-node-id="W0tpriLilLgxPqLEIvoAUS"><!--pnid:Ch0uipSzKueFAXG2yOE02E-->v1</b><!--pnid:isYZLszvcYsOKdvJp4DjRf-->：按岗位产出 SOP，发现「奢侈品门店」与「设计师品牌电商」动作差异大 → 引入<strong data-page-node-id="1UohSf5hWTyZ44KqsFGz5s"><!--pnid:4j81sfR8HrSGolc0T0zm92-->公司类型修正项</strong><!--pnid:qb7PbWUSET948Y3sGm5jmh-->。</li>
+          <li data-page-node-id="vIIdg1we2UxG1Zyuro8jET"><b data-page-node-id="IsnvqYuxrQ43XKh1CmzX7J"><!--pnid:hGVDfjKBKi47JoGrejcOG1-->v2</b><!--pnid:m368a4wb04dGKFe7RvA9mX-->：把 SOP 抽成「角色数据对象」，让生成器能组合 → 形成 <code data-page-node-id="OwNP9Emu0I6nfO5boDdHJA" data-pnid-children="xivosHH6e4fVew0Towjr3s">roleSOP × typeModifier</code><!--pnid:ZAize5CKkVmb4jIXilRsyB--> 模型。</li>
+          <li data-page-node-id="z1WA36hV0FTW4lf60t69KX"><b data-page-node-id="Mnuv3Is5nyRLIzNYFtwIZc"><!--pnid:t1JMQlm8Xmu1z5DJyagpiw-->v3</b><!--pnid:9yFNh9Lxh7OzUMPsi3PDbd-->：补齐 skill map（能力模型量化），让 SOP 不止「做什么」还知道「靠什么能力做」。</li>
+          <li data-page-node-id="mumrwJ4RCFsbjbafPx4lWJ"><b data-page-node-id="eEfLLMlxbA0U5lrJKhZ35R"><!--pnid:V2CR3Jx2NdRnDSMns79kpB-->v4</b><!--pnid:tSsA2K8S9EaM49RDTw5itV-->：统一视觉为「香槟金 × 深色编辑风」，提升可信度与可读性。</li>
+        </ul>
+      </div>
+
+      <div data-page-node-id="Kp7ov81URFgSXTMLQURCvG" class="skillbox">
+        <h4 data-page-node-id="9abzbH7rZwFyqvYgBJxDwk"><!--pnid:mgjMZGHaEkEsP6B40dJo1i-->③ 如何扩展成 WorkBuddy Skill</h4>
+        <p data-page-node-id="bMEXhIq5wMYUEShN6GmpFV" style="color:var(--muted); font-size:13.5px; margin:0"><!--pnid:FHkDOoEiNA8LG8QJM4R8XG-->把本页的 SOP 数据抽成 <code data-page-node-id="jBuo5cSXEDg8oGy6PaK6Uw" data-pnid-children="kmCekz6nXqiu1WZVGTtiWN">SKILL.md</code><!--pnid:uSOInIXRFYlZohEv56ROdI--> + 一个生成器脚本，即可封装为可被反复调用的 Skill：</p>
+        <div data-page-node-id="xWrNW8HdliuBNlbJzhkqEe" class="code"><span data-page-node-id="1BVh27bshfRCwXdXyxBgwj" class="k"><!--pnid:tfYSvLNvmrCnbA6QCNy1XB-->mkdir</span><!--pnid:Pc4U5Mc2cPDJ6qH14anMHC--> -p ~/.codebuddy/skills/sh-fashion-sop
+<span data-page-node-id="spCpFrhbPbG9tH2k38DcxN" class="k"><!--pnid:zmhDddWXkkYS9mYvSGq6p1-->cat</span><!--pnid:7O4LUcZRmBNKTKyRWiUACZ--> > ~/.codebuddy/skills/sh-fashion-sop/SKILL.md <span data-page-node-id="NAUuPfnWoqgdjZNYdI2hvn" class="s"><!--pnid:FGAD7WBQIbUOUYtAXqGZmb-->&lt;&lt;'EOF'</span><!--pnid:FgnijpB6fIiQaDJOPIqvOt-->
+name: sh-fashion-sop
+description: 为上海时尚行业各类型公司/岗位生成员工SOP与技能图谱
+triggers: [SOP, 员工手册, 入职, 时尚公司, 岗位流程]
+<span data-page-node-id="t3P1FqlsgWiKucePaTcmj2" class="s"><!--pnid:JIqzSTTiYKUuaDOxzqomPG-->EOF</span>
+<span data-page-node-id="xKxRygM5adcb9ObonHBcmf" class="c"><!--pnid:bdeUUY0R5KB6kkOx01kQ4V--># 把本文 roleSOP / typeModifier 数据写入 data.json，</span>
+<span data-page-node-id="XRFULYOiKrtIClbp3ycuBH" class="c"><!--pnid:IaUYekBGmWNy1DxS87RX7M--># 再加一个 run.sh 调用生成器即可。</span></div>
+        <div data-page-node-id="pdPKEjOUmqOgO4pVVZzsUV" class="note"><!--pnid:d5oEduxRcxc6UulQD34Zr6-->💡 真正的 vibe coding 不是「一次生成就完事」，而是 <b data-page-node-id="ZkCUBF63y5Bji7OM10PWDX"><!--pnid:pQ64IFoBZbf3b9fYQaHeH5-->描述 → 生成 → 校验 → 抽象成可复用资产（Skill）</b><!--pnid:6xSwYsBtXMFUXYgJ7o6SRb--> 的循环。这套 SOP 库你已经可以直接当作团队新人 onboarding 模板使用。</div>
+      </div>
+    </section>
+
+    <footer data-page-node-id="AEvtvc6FCLOKOaga4dM630"><!--pnid:eULfeMPgDGer1SB9Z839k2-->
+      <div class="disclaimer">
+        <div class="disclaimer-title">免责声明 / Disclaimer</div>
+        <ol>
+          <li>本知识库内容由 AI 辅助生成，并依据行业通用实践整理，仅供学习与内部参考之用，<b>不构成任何法律、人事、财务或专业意见</b>。</li>
+          <li>文中涉及的流程、岗位、KPI、红线等条目为通用性示例，<b>不保证准确、完整或适用于任何特定企业</b>。实际执行请以您所在公司的规章制度、劳动合同及适用的法律法规为准。</li>
+          <li>文中出现的品牌、公司、产品名称仅作示例说明，与相关权利人或企业<b>不存在任何关联、授权或背书关系</b>。</li>
+          <li>使用者应自行判断并承担使用本内容所产生的全部风险与后果。作者及发布方对因使用或依赖本内容而导致的任何直接或间接损失<b>不承担任何责任</b>。</li>
+          <li>本内容可按「原样」用于个人学习、内部分享与二次编辑；对外商业发布前，请务必由法务或相关专业人员进行审核。</li>
+        </ol>
+        <div class="disclaimer-meta">© 2026 SH FASHION SOP 知识库 · 由 Vibe Coding 生成 · 本页为单文件离线应用，可整页保存、内网分发、二次编辑。</div>
+      </div>
+    </footer>
+  </main>
+</div>
+<div data-page-node-id="fItfwLVSFWbeRC196A73LD" class="totop" id="totop"><!--pnid:y9NCkRPuYTYk2vMXOwCzBl-->↑</div>
+
+<script data-page-node-id="4dlJPncYnzkWbPGxKevAn7" data-pnid-children="M3F6vRbQlNyzHhqvhCvYef">
+/* =====================================================================
+   数据层：公司类型 / 岗位 / SOP / 技能图谱
+   ===================================================================== */
+
+const TYPES = [
+  {id:"lux", name:"国际奢侈品牌", tag:"Maison / 大中华区", color:"#c9a25e",
+   desc:"LVMH / Kering / Richemont 等旗下品牌的上海分公司与精品店。强总部管控、重品牌调性与 VIP 关系。",
+   players:"Hermès、Louis Vuitton、Chanel、Gucci、Dior、Cartier（上海国金、恒隆、iapm、前滩太古里等）",
+   org:"大中华区/中国区办公室（市场·PR·CRM·零售运营·VM）＋ 精品店",
+   roles:"零售销售/店长、PR/传媒、CRM/VIP、视觉陈列 VM、市场营销",
+   rhythm:"月度品牌日历驱动；大秀/快闪/VIP 私享活动密集；季度盘点。",
+   redline:"严禁泄露未发布产品/价格/客户资料；社交媒体发言需合规审核；不得私下交易或收受供应商利益。"},
+
+  {id:"designer", name:"设计师 / 独立设计师品牌", tag:"Founder-driven", color:"#d98a86",
+   desc:"本土设计师品牌，创始人驱动，设计—生产—销售一体，讲究调性但资源有限。",
+   players:"之禾 ICICLE、SHUSHU/TONG、Short Sentence、UNMENTIONED、原麦（示例性列举）",
+   org:"小而美团队：设计 + 商品 + 电商/私域 + 供应链",
+   roles:"设计师/设计助理、商品企划、电商/私域、视觉、跟单",
+   rhythm:"按订货会/季节奏；上新频繁、爆款靠内容带动；人少事多。",
+   redline:"设计稿/版型属核心资产，外发打版需签保密；供应链账期与质检不能省；私域客户数据合规。"},
+
+  {id:"buyerstore", name:"买手店 / 多品牌集合店", tag:"Multi-brand", color:"#7fae8e",
+   desc:"采买全球设计师与潮流品牌，靠选品眼光与门店体验取胜。",
+   players:"栋梁、SND、LOOKNOW、连卡佛上海、10 Corso Como、On the List",
+   org:"买手团队 + 门店运营 + 电商/小程序 + 内容社群",
+   roles:"买手、视觉陈列、门店运营、内容/社群、商品数据",
+   rhythm:"季前订货会 + 周度补货；门店 Activity 与社群活动高频。",
+   redline:"库存周转是生命线；订货需基于销售数据而非个人喜好；假货/水货零容忍。"},
+
+  {id:"ecommerce", name:"时尚电商 / 内容平台", tag:"Platform / MCN", color:"#6fa8c9",
+   desc:"得物、小红书、抖音电商、天猫时尚等平台及入驻商家/MCN，流量与转化驱动。",
+   players:"得物、小红书、抖音电商、天猫/iFashion、淘宝直播机构、MCN",
+   org:"平台侧：行业运营/招商/达人；商家侧：店铺运营/内容/直播/投流",
+   roles:"电商运营、内容运营、达人/直播、投流、招商/行业运营",
+   rhythm:"大促（38/618/双11/年货节）是核心；日更内容 + 日播；数据小时级复盘。",
+   redline:"平台规则红线（虚假宣传/刷单/侵权）直接封店；广告法合规；达人合同与分佣清晰。"},
+
+  {id:"media", name:"时尚媒体 / 自媒体", tag:"Editorial / KOL", color:"#b58fd0",
+   desc:"传统时尚刊与新媒体矩阵，内容影响力变现，商业化与编辑独立是难点。",
+   players:"Vogue 服饰与美容、时尚 COSMO、GQ、ELLE、小红书时尚博主团队、公众号矩阵",
+   org:"编辑部 + 商业化/广告 + 新媒体/视频",
+   roles:"编辑/记者、新媒体运营、视觉/摄影、商业化 AE、视频编导",
+   rhythm:"月刊/周刊节奏 + 热点日更；时装周、明星封面、品牌合作密集。",
+   redline:"编辑独立性；软广必须标注；肖像权/版权；不碰未经证实的八卦与敏感议题。"},
+
+  {id:"pr", name:"公关 / 品牌代理", tag:"Agency", color:"#c9a25e",
+   desc:"服务时尚客户的公关与品牌代理公司，项目制、多客户并行。",
+   players:"各大公关公司时尚组、品牌中国区代理、活动制作公司",
+   org:"客户组（AE/AM/SAM）＋ 媒介 ＋ 活动执行 ＋ 文案",
+   roles:"客户执行 AE、媒介、活动执行、文案、资深客户总监",
+   rhythm:"按客户 campaign 排期；媒体日/活动月密集；周报/月报机制。",
+   redline:"客户信息保密；不承诺媒体硬广位；预算与发票合规；利益冲突披露。"},
+
+  {id:"model", name:"模特 / 演艺经纪", tag:"Talent", color:"#d98a86",
+   desc:"模特与艺人经纪，靠casting、商务代言与拍摄资源运转。",
+   players:"模特经纪公司、演艺经纪、星探团队（示例性）",
+   org:"经纪 + casting/模卡 + 商务 + 财务",
+   roles:"模特经纪、星探/casting、商务、模卡拍摄统筹",
+   rhythm:"拍摄季/时装周密集；casting 日更；商务谈判驱动。",
+   redline:"未成年模特保护；合约与分成透明；肖像权授权清晰；不接违规商业。"},
+
+  {id:"supply", name:"供应链 / 生产制造", tag:"ODM / OEM", color:"#9a958c",
+   desc:"江浙沪服装工厂、面辅料商、ODM 设计生产一体商，支撑全行业供货。",
+   players:"服装 ODM/OEM 工厂（江浙沪）、面辅料商、3D 打版服务商",
+   org:"打版/样衣 + 生产 + 品控 QC + 跟单 + 采购",
+   roles:"跟单、打版师、品控 QC、面辅料采购、生产计划",
+   rhythm:"按订单交期倒排；样衣确认→大货→验货；季前产能紧张。",
+   redline:"交期与质检是底线；版型/工艺保密；环保与劳动法合规；不接侵权仿款大货。"},
+
+  {id:"tech", name:"时尚科技 / 零售科技", tag:"Fashion Tech", color:"#6fa8c9",
+   desc:"虚拟试衣、AI 搭配、3D 设计、数字时尚与零售 SaaS，技术与行业交叉。",
+   players:"虚拟试衣/AI 搭配/3D 设计/数字时尚/零售数据 SaaS（示例性）",
+   org:"产品 + 算法/3D + 商务 BD + 设计",
+   roles:"产品经理、算法/3D 工程师、商务 BD、时尚内容设计",
+   rhythm:"敏捷迭代；客户 POC 验证；与品牌/平台联调频繁。",
+   redline:"客户数据与模型版权；生成内容版权归属；不滥用用户身材/人脸数据。"}
+];
+
+/* ---- 岗位 SOP 模板（roleSOP）---- */
+const ROLES = [
+  {id:"social", name:"新媒体 / 内容运营", emoji:"📱",
+   onboard:[
+     "领取账号矩阵清单（小红书/抖音/视频号/微博/公众号），核对登录方式与二次验证归属公司。",
+     "研读《品牌内容调性手册》与近 90 天爆文/数据，输出 1 页「风格基线」笔记。",
+     "建立内容日历模板（周更排期 + 大促节点），与 PR、电商对齐当月主题。",
+     "配置数据看板（灰豚/新红/蝉妈妈或官方后台），设定每日截图归档机制。",
+     "签署《社交媒体发言合规确认书》，明确审稿流程与禁发清单。"
+   ],
+   weekly:[
+     "周一：盘点上周数据 + 本周热点/节点，定本周内容主题与排期。",
+     "周二—周四：按计划产出图文/短视频，单条发布前走审稿（合规+品牌）。",
+     "每日：评论区互动 + 私信导流（留资/加企微），异常舆情 1 小时内上报。",
+     "周五：周报（阅读/互动/涨粉/转化）+ 下周选题池。",
+     "大促/活动期：日更 + 小时级数据盯盘，及时追投/改标题。"
+   ],
+   collab:[
+     "↔ PR：活动/媒体资源提前 2 周同步，统一话题 tag 与视觉。",
+     "↔ 电商：种草内容挂车/跳转路径确认，转化数据回流内容侧。",
+     "↔ 视觉/摄影：提前 3 天给 brief（调性/尺寸/交片时间）。",
+     "↔ 设计：排版模板与品牌元素库对齐，避免每次重新设计。"
+   ],
+   scenario:[
+     "上新：提前 1 周埋预告 → 当日主图+短视频+买家秀 → 3 日后 UGC 复盘。",
+     "大秀/活动：现场快讯 + 幕后花絮 + KOL 联动，24 小时内出合集。",
+     "危机：立即撤稿/禁评（按权限）→ 拉群同步 PR 与法务 → 等统一口径再回应。"
+   ],
+   review:[
+     "核心指标：曝光、互动率、涨粉、种草—转化 ROI、爆文率。",
+     "每条内容打标签（主题/形式/时段），周维度找「高效组合」。",
+     "周会 10 分钟复盘：哪类内容该加预算，哪类该砍。"
+   ],
+   redline:[
+     "未经审稿不得擅自发布；禁用「最/第一/国家级」等绝对化用语（广告法）。",
+     "不得购买虚假互动/刷量；不得在未授权下使用他人素材。",
+     "客户/明星肖像、未发布产品图严禁提前泄露。"
+   ]},
+
+  {id:"ecom", name:"电商运营", emoji:"🛒",
+   onboard:[
+     "接管店铺后台（千牛/抖店/小红书店铺/得物），核对子账号权限与资金账户。",
+     "梳理在架商品、价格体系、促销机制、运费与退换政策。",
+     "拉取近 90 天销售/流量/转化数据，定位 TOP 款与滞销款。",
+     "建立大促日历（38/618/双11/年货节）与备货—投流联动表。",
+     "熟悉平台规则红线（虚假交易/极限词/侵权），签署运营合规书。"
+   ],
+   weekly:[
+     "周一：周数据复盘 + 本周目标（GMV/客单/转化）拆解到日。",
+     "每日：盯实时看板（流量/转化/退款），异常单品即时调价/补券。",
+     "每周 2 次上新高/补货，维护详情页与买家秀。",
+     "周四前：确认下周投流计划与预算，提报素材需求。",
+     "大促：倒计时节奏（蓄水—预热—爆发—返场），每小时盯盘。"
+   ],
+   collab:[
+     "↔ 内容/直播：货品与话术对齐，爆款内容反哺搜索词。",
+     "↔ 供应链：提前 15 天报备货需求，滞销品及时清仓决策。",
+     "↔ 设计：主图/详情页/活动 banner 排期前置。",
+     "↔ 客服：高频问题沉淀为 FAQ 与自动回复。"
+   ],
+   scenario:[
+     "大促：提前 30 天蓄水（收藏加购）→ 预热券 → 开门红爆发 → 返场清尾。",
+     "爆单：库存预警→开预售/限单→供应链加急，同步客服话术。",
+     "差评/投诉：2 小时首响，升级标准为「退款+补偿+改进动作」。"
+   ],
+   review:[
+     "核心指标：GMV、转化率、客单价、UV 价值、退货率、投放 ROI。",
+     "按「渠道×商品×活动」三维切片，找增量与漏点。",
+     "大促后 3 日内出复盘：备货准确率、流量成本、利润。"
+   ],
+   redline:[
+     "严禁刷单/虚假交易/诱导好评；严禁极限词与虚假宣传。",
+     "价格体系不可私自改动；库存超卖需有兜底方案。",
+     "不得泄露经营数据与竞品情报给外部。"
+   ]},
+
+  {id:"visual", name:"视觉 / 陈列 / 摄影", emoji:"🎨",
+   onboard:[
+     "接收《品牌视觉规范 VI》：色板、字体、logo 安全区、修图标准。",
+     "盘点器材/影棚/外拍资源与供应商（摄影/修图/道具）白名单。",
+     "对齐各渠道尺寸规范（电商主图、社媒竖图、门店 KH、物料）。",
+     "建立素材库与命名规则（项目_日期_版本_分辨率）。",
+     "确认修图/交片 SLA 与版权/肖像授权流程。"
+   ],
+   weekly:[
+     "按内容/电商排期接 brief，排拍摄与修图档期。",
+     "每日：修图交付 + 素材入库 + 标注可用范围。",
+     "门店 VM：按周/按活动更新陈列，拍照留档。",
+     "周会：同步下阶段视觉主题与所需资源。"
+   ],
+   collab:[
+     "↔ 内容/电商：brief 前置 3 天，明确用途与尺寸。",
+     "↔ 买手/商品：新品到仓即拍，先出主图再补细节。",
+     "↔ PR：活动视觉与现场物料统一。"
+   ],
+   scenario:[
+     "上新拍摄：到仓当日定妆→棚拍/平铺→24h 出主图→3 日全套。",
+     "大秀/活动：现场跟拍 + 即时修图发稿，次日出精修合集。",
+     "紧急物料：走加急 SLA，优先保核心渠道。"
+   ],
+   review:[
+     "指标：素材交付准时率、返修率、爆文配图率、门店停留/转化。",
+     "每月整理「高表现视觉范式」供全团队复用。"
+   ],
+   redline:[
+     "未授权肖像/音乐/字体/场地不得商用。",
+     "修图不得过度（虚假宣传风险）；色差需控制在可接受范围。",
+     "源文件与版权归属按合同，离职需完整交接素材库。"
+   ]},
+
+  {id:"buyer", name:"买手 / 商品企划", emoji:"🧭",
+   onboard:[
+     "接手选品数据库（历史销售/毛利/动销/退货），读懂品牌组合策略。",
+     "梳理供应商与订货会日历（国内外时装周/showroom）。",
+     "对齐门店/电商售卖计划与库存目标（OTB 预算）。",
+     "建立选品评分卡（风格匹配/价格带/动销预估/毛利）。",
+     "熟悉买手店合规：正品渠道、授权与质检留痕。"
+   ],
+   weekly:[
+     "周度：销售与库存复盘，识别畅销/滞销，决定补货或促销。",
+     "与供应商周度沟通到货与退换。",
+     "维护选品池与下一季规划文档。"
+   ],
+   collab:[
+     "↔ 视觉/内容：新品到仓即同步拍摄与故事包装。",
+     "↔ 门店：陈列与导购话术对齐爆款。",
+     "↔ 财务：预算与账期管理。"
+   ],
+   scenario:[
+     "订货会：前期数据准备→现场选款→下单→跟单到仓。",
+     "季末清仓：动销分级，阶梯折扣，避免损伤品牌价。",
+     "爆款断货：找替代款或预售，维护客户预期。"
+   ],
+   review:[
+     "指标：售罄率、毛利、库存周转、动销率、 newcomer 占比。",
+     "季末复盘：选品命中率，优化下一季评分卡权重。"
+   ],
+   redline:[
+     "假货/水货零容忍；订货须基于数据而非个人偏好。",
+     "不超预算 OTB；供应商利益往来透明。"
+   ]},
+
+  {id:"pr", name:"PR / 媒介", emoji:"📣",
+   onboard:[
+     "建立媒体库（时尚/生活方式/KOL）与关系图谱，分级管理。",
+     "研读客户 Brief 与品牌调性，输出传播策略与话题线。",
+     "对齐审稿流程与发布节奏（媒体日/活动日）。",
+     "配置舆情监测工具，设定预警关键词。",
+     "签署保密协议，明确客户信息边界。"
+   ],
+   weekly:[
+     "周：媒体沟通 + 内容产出排期 + 客户周报。",
+     "每日：舆情监测，异常即时上报。",
+     "维护 KOL 合作台账与效果回流。"
+   ],
+   collab:[
+     "↔ 客户/品牌：brief 确认与口径统一。",
+     "↔ 内容/视觉：物料与新闻稿协同。",
+     "↔ 活动执行：媒体邀约与现场动线。"
+   ],
+   scenario:[
+     "媒体日/活动：邀约→签到→发稿→合集，24h 内收口。",
+     "负面舆情：拉群（PR+法务+客户）→ 定口径 → 分级回应。",
+     "明星/封面：肖像与采访授权前置。"
+   ],
+   review:[
+     "指标：曝光量、声量、正向占比、KOL 转化、客户满意度。",
+     "月度：渠道效能排序，优化下月资源分配。"
+   ],
+   redline:[
+     "客户信息保密；不承诺无法兑现的媒体资源。",
+     "软广标注合规；不碰敏感议题与不实信息。"
+   ]},
+
+  {id:"retail", name:"销售 / 门店", emoji:"🛍️",
+   onboard:[
+     "熟记产品知识（面料/版型/搭配/故事）与当季主推。",
+     "学习 CRM 系统（客户建档/预约/积分）与 VIP 服务标准。",
+     "演练迎宾—需求洞察—试衣—成交—售后全流程话术。",
+     "对齐门店 KPI（个人业绩/连带率/会员新增）与排班。",
+     "签署廉洁与隐私承诺（不私收、不泄露客户资料）。"
+   ],
+   weekly:[
+     "日：开店准备（陈列/库存/设备）→ 迎宾服务 → 闭店盘点。",
+     "每日客户回访与企微维系，VIP 邀约到店。",
+     "周：业绩复盘 + 主推练习 + 库存熟悉。"
+   ],
+   collab:[
+     "↔ VM：陈列调整反馈，爆款及时补位。",
+     "↔ CRM/市场：活动与 VIP 权益对齐。",
+     "↔ 电商：线上下单门店自提/退换协同。"
+   ],
+   scenario:[
+     "VIP 私享：预约→专属搭配→茶歇→闭店成交。",
+     "大促/快闪：分流引导、限量款公平发放。",
+     "客诉：先共情→按权限补偿→记录升级。"
+   ],
+   review:[
+     "指标：个人业绩、连带率、客单价、会员新增/复购、NPS。",
+     "周会：TOP 成交话术沉淀为团队 SOP。"
+   ],
+   redline:[
+     "不得私收货款/飞单；不得泄露客户资料。",
+     "不承诺超出权限的售后；不诋毁竞品。"
+   ]},
+
+  {id:"design", name:"设计师 / 设计助理", emoji:"✏️",
+   onboard:[
+     "研读品牌 DNA、往季系列与企划案（主题/色系/价格带）。",
+     "熟悉打版/工艺/面辅料资源与样衣流程。",
+     "对齐设计工具（AI/PS/CLO 3D）与文件规范。",
+     "建立灵感库与趋势追踪源（秀场/街拍/趋势机构）。",
+     "签署设计稿与版型保密协议。"
+   ],
+   weekly:[
+     "按企划推进款图→打版→样衣→修正循环。",
+     "周会：进度同步、成本与工艺可行性评审。",
+     "趋势与竞品收集，反哺下一季。"
+   ],
+   collab:[
+     "↔ 商品/买手：价格带与动销反馈。",
+     "↔ 供应链：工艺与交期可行性。",
+     "↔ 视觉：拍摄与故事包装。"
+   ],
+   scenario:[
+     "订货会：系列整合→look 搭配→讲款→接单。",
+     "样衣修正：问题分级（版型/工艺/成本）快速迭代。",
+     "紧急改款：最小改动保交期。"
+   ],
+   review:[
+     "指标：出款数、样衣通过率、大货成本、售罄率。",
+     "季末：设计命中率复盘，优化企划。"
+   ],
+   redline:[
+     "设计稿/版型属核心资产，外发须签保密。",
+     "不抄款/侵权；环保与合规工艺。"
+   ]},
+
+  {id:"supply", name:"供应链 / 生产", emoji:"🏭",
+   onboard:[
+     "接手订单系统（ERP/跟单表），核对客户/交期/工艺单。",
+     "梳理工厂产能、面辅料供应商与质检标准。",
+     "对齐打版—样衣—大货—验货全流程节点。",
+     "建立异常处理 SOP（延期/次品/改版）。",
+     "签署保密与合规（劳动法/环保）确认。"
+   ],
+   weekly:[
+     "日：进度跟单 + 异常预警（产能/物料/品质）。",
+     "周：产能排期与交期评审，风险单提前升级。",
+     "库存与半成品盘点。"
+   ],
+   collab:[
+     "↔ 设计：工艺与成本可行性前置评审。",
+     "↔ 品牌/买手：交期与补货协同。",
+     "↔ 财务：账期与付款节点。"
+   ],
+   scenario:[
+     "大货：产前样确认→上线→中查→尾查→验货发货。",
+     "延期：分级响应（加班/外发/客户沟通）。",
+     "质量事故：隔离→溯源→整改→客户通报。"
+   ],
+   review:[
+     "指标：交期达成率、一次合格率、成本偏差、返工率。",
+     "月度：供应商绩效排名，优化合作池。"
+   ],
+   redline:[
+     "交期与质检底线不可破；版型/工艺保密。",
+     "不接侵权仿款大货；环保与劳动法合规。"
+   ]}
+];
+
+/* ---- 技能图谱（skill map）---- */
+const SKILLS = {
+  social:{hard:["选题与文案","平台算法理解","数据复盘","brief 撰写","热点捕捉"],soft:["网感","抗压","跨团队沟通","审美"],tools:["小红书/抖音后台","灰豚/蝉妈妈","Canva/稿定","Notion/飞书"],path:"内容运营 → 高级内容 → 内容负责人/品牌社媒主理",kpi:"互动率、涨粉、种草ROI、爆文率",learn:"平台官方创作者学院、行业复盘群、竞品拆解"},
+  ecom:{hard:["店铺运营","投流(千川/信息流)","活动策划","数据分析","货品结构"],soft:["节奏感","决策力","抗压"],tools:["千牛/抖店","生意参谋/抖查查","Excel/BI","直通车/千川"],path:"运营助理 → 运营 → 店铺负责人 → 品牌电商负责人",kpi:"GMV、转化率、ROI、退货率",learn:"平台商家学习中心、大促实战、投放复盘"},
+  visual:{hard:["摄影/修图","陈列 VM","VI 规范","brief 转化"],soft:["审美","细节控","沟通"],tools:["PS/LR/Capture","CLO 3D","Figma","拍摄器材"],path:"设计/摄影 → 视觉主管 → 创意总监",kpi:"交付准时率、返修率、爆图率",learn:"时尚摄影课程、陈列认证、品牌视觉研究"},
+  buyer:{hard:["选品数据","OTB 预算","供应商管理","趋势判断"],soft:["眼光","谈判","冷静"],tools:["选品数据库","Excel/BI","showroom 资源","进销存"],path:"买手助理 → 买手 → 资深买手/商品总监",kpi:"售罄率、毛利、周转、动销",learn:"时装周/showroom、零售数据课、行业买手社群"},
+  pr:{hard:["媒体关系","传播策略","新闻稿","舆情处理"],soft:["情商","危机感","写作"],tools:["媒体库","舆情监测","PPT","邮件/企微"],path:"AE → AM → SAM → 客户总监",kpi:"声量、正向占比、客户续约",learn:"公关实务、媒体实习、舆情案例"},
+  retail:{hard:["产品知识","CRM","搭配销售","话术"],soft:["共情","韧性","形象"],tools:["POS/CRM","企微","搭配道具"],path:"销售 → 资深 → 店长 → 区域经理",kpi:"业绩、连带率、会员复购、NPS",learn:"奢侈品零售培训、CRM 实操、服务设计"},
+  design:{hard:["设计软件","打版理解","工艺","趋势"],soft:["创意","落地力","沟通"],tools:["AI/PS","CLO 3D","InDesign","趋势库"],path:"设计助理 → 设计师 → 主理人/创意总监",kpi:"出款数、样衣通过率、售罄率",learn:"圣马丁/parsons 公开课、秀场研究、工艺培训"},
+  supply:{hard:["跟单","打版","QC","成本核算"],soft:["严谨","协调","应急"],tools:["ERP/跟单表","Excel","验货标准","产能表"],path:"跟单/QC → 生产主管 → 供应链负责人",kpi:"交期达成、合格率、成本偏差",learn:"服装工程、质量管理、精益生产"}
+};
+
+/* ---- 公司类型修正项（typeModifier，给生成器用）---- */
+const TYPE_MOD = {
+  lux:["VIP/CRM 私享活动需提前报批","所有对外物料走总部合规审核","客户资料按 GDPR 级保密"],
+  designer:["设计稿外发打版须签保密","私域企微为主，重复购而非拉新","人少，需一人多岗"],
+  buyerstore:["订货基于销售数据，非个人喜好","周度补货 + 库存周转盯盘","正品渠道与授权留痕"],
+  ecommerce:["严守平台规则（禁刷单/极限词）","大促倒计时节奏，小时级盯盘","投流 ROI 日清"],
+  media:["编辑独立 + 软广标注","肖像/版权前置授权","热点日更，重影响力"],
+  pr:["客户信息保密，多客户并行","不承诺无法兑现的媒体资源","预算发票合规"],
+  model:["未成年模特保护","合约与分成透明","肖像权授权清晰"],
+  supply:["交期与质检底线","版型/工艺保密","环保与劳动法合规"],
+  tech:["客户数据与模型版权","生成内容版权归属明确","不滥用用户身材/人脸数据"]
+};
+
+const SH_LOCAL = [
+  "上海场地活动需提前向商场/物业报批（如恒隆/国金/iapm/前滩太古里）",
+  "外滩/武康路/安福路等网红点位拍摄需提前申请，避免扰民与城管风险",
+  "跨江浙沪供应链跟单注意物流时效与长三角通行",
+  "工商与个税合规：兼职达人/自由职业者结算走正规渠道"
+];
+
+/* =====================================================================
+   渲染层
+   ===================================================================== */
+const SOP_TITLES = ["入职落地 SOP","周常节奏 SOP","跨部门协作 SOP","关键场景 SOP","数据复盘 SOP","红线与避坑"];
+
+function renderMap(){
+  const g = document.getElementById("mapGrid");
+  g.innerHTML = TYPES.map(t=>`
+    <div class="card">
+      <span class="tag" style="color:${t.color};border-color:${t.color}55">${t.tag}</span>
+      <h3>${t.name}</h3>
+      <p>${t.desc}</p>
+      <ul>
+        <li><b style="color:var(--ink)">核心岗位：</b>${t.roles}</li>
+        <li><b style="color:var(--ink)">节奏：</b>${t.rhythm}</li>
+      </ul>
+    </div>`).join("");
+}
+
+function renderTypes(){
+  const w = document.getElementById("typesWrap");
+  w.innerHTML = TYPES.map((t,i)=>`
+    <details class="sop" ${i===0?"open":""}>
+      <summary><span class="ic">TYPE ${String(i+1).padStart(2,"0")}</span> ${t.name} <span style="color:var(--muted);font-weight:400;font-size:12px;margin-left:6px;">${t.tag}</span></summary>
+      <div class="body">
+        <div class="kv"><b>定位</b><span>${t.desc}</span></div>
+        <div class="kv"><b>代表玩家</b><span>${t.players}</span></div>
+        <div class="kv"><b>组织形态</b><span>${t.org}</span></div>
+        <div class="kv"><b>核心岗位</b><span>${t.roles}</span></div>
+        <div class="kv"><b>工作节奏</b><span>${t.rhythm}</span></div>
+        <div class="warn">⛔ 红线：${t.redline}</div>
+      </div>
+    </details>`).join("");
+}
+
+function renderSOP(){
+  const w = document.getElementById("sopWrap");
+  w.innerHTML = ROLES.map(r=>`
+    <div class="role-block">
+      <div class="rhead"><h3>${r.emoji} ${r.name}</h3><span>8 大核心岗位之一</span></div>
+      ${[
+        {t:SOP_TITLES[0],items:r.onboard},
+        {t:SOP_TITLES[1],items:r.weekly},
+        {t:SOP_TITLES[2],items:r.collab},
+        {t:SOP_TITLES[3],items:r.scenario},
+        {t:SOP_TITLES[4],items:r.review},
+        {t:SOP_TITLES[5],items:r.redline}
+      ].map((s,si)=>`
+        <details class="sop" ${si===0?"open":""}>
+          <summary><span class="ic">SOP ${String(si+1).padStart(2,"0")}</span> ${s.t}</summary>
+          <div class="body"><ol>${s.items.map(x=>`<li>${x}</li>`).join("")}</ol></div>
+        </details>`).join("")}
+    </div>`).join("");
+}
+
+function renderSkills(){
+  const w = document.getElementById("skillWrap");
+  w.innerHTML = ROLES.map(r=>{
+    const s = SKILLS[r.id];
+    return `<div class="role-block">
+      <div class="rhead"><h3>${r.emoji} ${r.name}</h3><span>Skill Map</span></div>
+      <div class="skillgrid">
+        <div class="skillbox">
+          <h4>硬技能</h4><div class="chips">${s.hard.map(x=>`<span class="chip">${x}</span>`).join("")}</div>
+          <h4 style="margin-top:14px;">软技能</h4><div class="chips">${s.soft.map(x=>`<span class="chip">${x}</span>`).join("")}</div>
+          <h4 style="margin-top:14px;">工具栈</h4><div class="chips">${s.tools.map(x=>`<span class="chip">${x}</span>`).join("")}</div>
+        </div>
+        <div class="skillbox">
+          <div class="kv"><b>晋升路径</b><span>${s.path}</span></div>
+          <div class="kv"><b>关键 KPI</b><span>${s.kpi}</span></div>
+          <div class="kv"><b>学习资源</b><span>${s.learn}</span></div>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+/* ---- 生成器 ---- */
+function initGen(){
+  const st = document.getElementById("selType");
+  const sr = document.getElementById("selRole");
+  st.innerHTML = TYPES.map(t=>`<option value="${t.id}">${t.name}</option>`).join("");
+  sr.innerHTML = ROLES.map(r=>`<option value="${r.id}">${r.emoji} ${r.name}</option>`).join("");
+  document.getElementById("genBtn").addEventListener("click", genOut);
+}
+function genOut(){
+  const t = TYPES.find(x=>x.id===document.getElementById("selType").value);
+  const r = ROLES.find(x=>x.id===document.getElementById("selRole").value);
+  const mods = TYPE_MOD[t.id]||[];
+  const out = document.getElementById("genOut");
+  out.classList.add("show");
+  out.innerHTML = `
+    <div class="gencard">
+      <h4>${r.emoji} ${r.name} · @ ${t.name}</h4>
+      <div class="sub">定制 SOP 清单 = 岗位标准 SOP × 公司类型修正 × 上海本地化</div>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 6px;"><b style="color:var(--ink)">① 入职落地</b></p>
+      <ul>${r.onboard.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <p style="font-size:13px;color:var(--muted);margin:12px 0 6px;"><b style="color:var(--ink)">② 周常节奏</b></p>
+      <ul>${r.weekly.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <p style="font-size:13px;color:var(--muted);margin:12px 0 6px;"><b style="color:var(--ink)">③ 关键场景</b></p>
+      <ul>${r.scenario.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <p style="font-size:13px;color:var(--accent);margin:12px 0 6px;"><b>④ 公司类型修正项（${t.name}）</b></p>
+      <ul>${mods.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <p style="font-size:13px;color:var(--accent);margin:12px 0 6px;"><b>⑤ 上海本地化动作</b></p>
+      <ul>${SH_LOCAL.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <p style="font-size:13px;color:var(--red);margin:12px 0 6px;"><b>⑥ 红线</b></p>
+      <ul>${r.redline.concat([t.redline]).map(x=>`<li>${x}</li>`).join("")}</ul>
+    </div>`;
+  out.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+/* ---- 导航高亮 + 回到顶部 ---- */
+function initNav(){
+  const links = [...document.querySelectorAll(".nav a")];
+  const secs = links.map(a=>document.querySelector(a.getAttribute("href")));
+  const obs = new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.remove("active"));
+        const id = "#"+e.target.id;
+        const a = links.find(l=>l.getAttribute("href")===id);
+        if(a) a.classList.add("active");
+      }
+    });
+  },{rootMargin:"-40% 0px -55% 0px"});
+  secs.forEach(s=>s&&obs.observe(s));
+  const totop = document.getElementById("totop");
+  window.addEventListener("scroll",()=>totop.classList.toggle("show",window.scrollY>600));
+  totop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+}
+
+/* ---- boot ---- */
+renderMap();
+renderTypes();
+renderSOP();
+renderSkills();
+initGen();
+initNav();
+</script>
+</body>
+</html>
